@@ -7,7 +7,7 @@ int main()
     val1 = (COMP *)malloc(sizeof(COMP));
     val2 = (COMP *)malloc(sizeof(COMP));
     h = (COMP *)malloc(sizeof(COMP));
-    printf("Seleccione la operación a realizar: \n1)Suma\n2)Multiplicación\n");
+    printf("Seleccione la operaciÃ³n a realizar: \n1)Suma\n2)MultiplicaciÃ³n\n");
     scanf("%i", &x);
 	if (x == 1)
     {
@@ -23,7 +23,7 @@ int main()
     }
     else
     {
-    	printf("No se ha ingresado una operación válida");
+    	printf("No se ha ingresado una operaciÃ³n vÃ¡lida");
 		return 0;
 	}
     getchar();
