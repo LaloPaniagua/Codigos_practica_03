@@ -19,8 +19,8 @@ struct _polinomio{
 typedef struct _polinomio POLI;
 //Prototipos de las funciones
 POLI crearpolinomio();
-POLI* resta(POLI a, POLI b);
-POLI* suma(POLI a, POLI b);
-void imprimir(POLI a);
-void liberar(POLI a);
+POLI* resta(POLI* a, POLI* b);
+POLI* suma(POLI* a, POLI* b);
+void imprimir(POLI* a);
+void liberar(POLI* a);
 #endif
