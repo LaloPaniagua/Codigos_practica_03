@@ -10,7 +10,8 @@ struct _termino{
     double coeficiente;
 };
 typedef struct _termino TERMINO;
-//Estructura del polinomio compuesta por un campo con la cantidad de términos del polinomio y un apuntador que contendrá a loos términos
+/*Estructura del polinomio compuesta por un campo con la cantidad 
+de términos del polinomio y un apuntador que contendrá a loos términos*/
 struct _polinomio{
     int terminos;
     TERMINO* P;
