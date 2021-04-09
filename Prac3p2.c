@@ -12,8 +12,10 @@ POLI crearpolinomio(){
         scanf("%d",&p.terminos);
     }
     
-    p.P=malloc(sizeof(TERMINO)*p.terminos);//Se reserva la memoria necesaria para almacenar un polinomio del tamaño especificado
-    for(i;i<p.terminos;i++){//Se asignan los coeficientes de cada término
+//Se reserva la memoria necesaria para almacenar un polinomio del tamaño especificado
+    p.P=malloc(sizeof(TERMINO)*p.terminos);
+	//Se asignan los coeficientes de cada término
+    for(i;i<p.terminos;i++){
         printf("Ingrese el valor del coeficiente correspondiente al término de grado %d :",i);
         scanf("%lf",&p.P[i].coeficiente);
         p.P[i].exponente=i;
@@ -23,19 +25,24 @@ POLI crearpolinomio(){
 
 POLI* resta(POLI a, POLI b){
     int i=0;
-    POLI* respuesta;//Apuntador que será retornado tras ejecutarse la función
-    respuesta=malloc(sizeof(POLI));//Se reserva la memoria necesaria para almacenar al polinomio resultante
+//Apuntador que será retornado tras ejecutarse la función
+    POLI* respuesta;
+//Se reserva la memoria necesaria para almacenar al polinomio resultante
+    respuesta=malloc(sizeof(POLI));
     if(a.terminos>=b.terminos)
         respuesta->terminos=a.terminos;
     else
-        respuesta->terminos=b.terminos;//Al polinomio respuesta se le asigna el tamaño del polinomio más grande
-    respuesta->P=malloc(sizeof(TERMINO)*respuesta->terminos);//Se reserva la memoria necesaria para almacenar loos términos del polinomio resultante
+//Al polinomio respuesta se le asigna el tamaño del polinomio más grande
+        respuesta->terminos=b.terminos;
+//Se reserva la memoria necesaria para almacenar loos términos del polinomio resultante
+    respuesta->P=malloc(sizeof(TERMINO)*respuesta->terminos);
     while(i<a.terminos && i<b.terminos){//Se realiza la resta de polinomios
         respuesta->P[i].coeficiente=a.P[i].coeficiente-b.P[i].coeficiente;
         respuesta->P[i].exponente=i;
         i++;
     }
-    if(respuesta->terminos>=i){//Se llenan los términos restantes con los coeficientes del polinomio de mayor grado
+//Se llenan los términos restantes con los coeficientes del polinomio de mayor grado
+    if(respuesta->terminos>=i){
         if(a.terminos>b.terminos){
             for(i;i<respuesta->terminos;i++){
                 respuesta->P[i].coeficiente=a.P[i].coeficiente;
@@ -52,7 +59,8 @@ POLI* resta(POLI a, POLI b){
     return respuesta;
 }
 
-//La función suma es igual a la función resta, solo cambiando la operación realizada entre los coeficientes
+/*La función suma es igual a la función resta,
+solo cambiando la operación realizada entre los coeficientes*/
 POLI* suma(POLI a, POLI b){
     int i=0;
     POLI* respuesta;
@@ -85,8 +93,10 @@ POLI* suma(POLI a, POLI b){
 }
 //Función para imprimir los polinomios
 void imprimir(POLI a){
-    int i=a.terminos-1;//Variable con la posición de cada elemento del arreglo
-    for(i;i>1;i--){//Ciclo para imprimir cada elemento del arreglo de grado superior a 2
+//Variable con la posición de cada elemento del arreglo
+    int i=a.terminos-1;
+//Ciclo para imprimir cada elemento del arreglo de grado superior a 2
+    for(i;i>1;i--){
         printf("%lf x^%d ",a.P[i].coeficiente,a.P[i].exponente);
         if(a.P[i-1].coeficiente>=0)
             printf("+ ");
