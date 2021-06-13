@@ -65,4 +65,4 @@ void imprimir(COMP h)
     else if (h.i < 0)
         printf(" %lf i", h.i);
 }
-//Hecho por Eduardo Paniagua y Jhusteene Salgado en 18/03/2021
+//Hecho por Eduardo Paniagua y Jhusteene Salgado el 18/03/2021
